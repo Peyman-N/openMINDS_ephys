@@ -5,31 +5,13 @@
         "input",
         "output",
         "stimulationDevice",
-        "aquistionDevice",
+        "aquisitionDevice",
         "stimulus"
     ],
     "properties": {
-        "startTime": {
-            "_formats": [
-                "date-time"
-            ],
-            "type": "string",
-            "_instruction": "Date and time at which the brain slicing was begun"
-        },
-        "endTime": {
-            "_formats": [
-                "date-time"
-            ],
-            "type": "string",
-            "_instruction": "Date and time at which the brain slicing was completed"
-        },
-        "providerExperimentID": {
+        "identifier": {
             "type": "string",
             "_instruction": "Laboratory identifier of the experiment"
-        },
-        "providerExperimentName": {
-            "type": "string",
-            "_instruction": "Laboratory name of the experiment"
         },
         "stimulationDevice": {
             "type": "array",
@@ -37,10 +19,13 @@
             "uniqueItems": true,
             "_instruction": "Device used for stimulation",
             "linkedTypes": [
-                "https://openminds.ebrains.eu/ephys/Device"
+                "https://openminds.ebrains.eu/ephys/Device",
+                "https://openminds.ebrains.eu/ephys/Pipette",
+                "https://openminds.ebrains.eu/ephys/ElectrodeArray",
+                "https://openminds.ebrains.eu/ephys/Electrode"
             ]
         },
-        "aquistionDevice": {
+        "aquisitionDevice": {
             "type": "array",
             "minItems": 1,
             "uniqueItems": true,
@@ -48,21 +33,22 @@
             "linkedTypes": [
                 "https://openminds.ebrains.eu/ephys/Device",
                 "https://openminds.ebrains.eu/ephys/Pipette",
-                "https://openminds.ebrains.eu/ephys/EletrodeArray",
+                "https://openminds.ebrains.eu/ephys/ElectrodeArray",
                 "https://openminds.ebrains.eu/ephys/Electrode"
             ]
         },
         "targetHoldingPotential": {
             "_instruction": "Target holding potential of patched cell",
-            "linkedTypes": [
-                "https://openminds.ebrains.eu/core/ParameterSet"
+            "_embeddedTypes": [
+                "https://openminds.ebrains.eu/core/QuantitativeValue",
+                "https://openminds.ebrains.eu/core/QuantitativeValueRange"
             ]
         },
         "input": {
             "type": "array",
             "minItems": 1,
             "uniqueItems": true,
-            "_instruction": "Add all input (tissue sample state, cell state, subject state and patched cell's) used by this stimulation experiment.",
+            "_instruction": "Add all input (tissue sample state, cell state, subject state and patched cells) used by this stimulation experiment.",
             "_linkedTypes": [
                 "https://openminds.ebrains.eu/ephys/CellState",
                 "https://openminds.ebrains.eu/ephys/PatchedCell",
@@ -94,7 +80,7 @@
                 "https://openminds.ebrains.eu/ephys/Measurement"
             ]
         },
-        "seriesResitance": {
+        "seriesResistance": {
             "_instruction": "Series resistance compensation while patching cell.",
             "_linkedTypes": [
                 "https://openminds.ebrains.eu/ephys/Measurement"
@@ -109,7 +95,7 @@
         "stimulus": {
             "_instruction": "Stimulus used in the stimulation experiment.",
             "_linkedTypes": [
-                "https://openminds.ebrains.eu/core/Stimulus"
+                "https://openminds.ebrains.eu/core/Stimulation"
             ]
         }
     }

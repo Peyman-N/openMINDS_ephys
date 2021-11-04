@@ -2,7 +2,7 @@
     "_type": "https://openminds.ebrains.eu/ephys/ElectrodeArray",
     "required": [
         "electrodes",
-        "internalIdentifier"
+        "identifier"
     ],
     "properties": {
         "electrodes": {
@@ -14,7 +14,7 @@
                 "https://openminds.ebrains.eu/ephys/Electrode"
             ]
         },
-        "internalIdentifier": {
+        "identifier": {
             "type": "string",
             "_instruction": "Enter the identifier used for this electrode array within the file it is stored in."
         },
@@ -22,7 +22,7 @@
             "type": "array",
             "minItems": 1,
             "uniqueItems": true,
-            "_instruction": "Amplifier used with this electrode",
+            "_instruction": "Amplifier used with this electrode array",
             "linkedTypes": [
                 "https://openminds.ebrains.eu/ephys/Device"
             ]
